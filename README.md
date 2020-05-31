@@ -36,7 +36,7 @@ It has a unique Up-down archtiecture which has a contracting path and an expansi
 U-NET archtiectURE: 
 ![alt text][unet1]
 
-[unet1]: https://github.com/iamlmn/train-unet/blob/master/assets/unet.png "Unet Arch"
+[unet1]: https://github.com/iamlmn/train-unet/blob/master/assets/Unet.png "Unet Arch"
 
 U-NET design: 
 ![alt text][unet2]
@@ -67,9 +67,9 @@ Can be used like a package like below as well
 Requires Training sets & test sets are expected to be in the below format.
 
 Input struct on single train and test set: 
-![alt text][unet2]
+![alt text][unet3]
 
-[unet2]: https://github.com/iamlmn/train-unet/blob/master/assets/input-struct.png "Input Struct"
+[unet3]: https://github.com/iamlmn/train-unet/blob/master/assets/input-struct.png "Input Struct"
 
 ***
 
