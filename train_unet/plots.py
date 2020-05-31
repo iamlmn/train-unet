@@ -1,4 +1,4 @@
-
+import random
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,7 +30,7 @@ def train_illustrate(X_train, Y_train, save = True):
 		plt.show()
 
 
-def random_prediction_plots_on_training_set():
+def random_prediction_plots_on_training_set(X_train, Y_train, preds_train_t, save = True):
 	# TODO Eithr take a lis of indexes or generate random indexs and save plots for them
 	# Ploting our predicted masks
 	ix = random.randint(0, 602)
@@ -50,12 +50,15 @@ def random_prediction_plots_on_training_set():
 	plt.subplot(133)
 	imshow(np.squeeze(preds_train_t[ix] > 0.5))
 	plt.title("Predictions")
-	plt.show()
+	if save:
+		plt.savefig('rnd-prediction-training-set.png')
+	else:
+		plt.show()
 
 	# TODO NNEED TO SAVE INSTEAD OF SHOW
 
 
-def random_prediction_plots_on_validation_set():
+def random_prediction_plots_on_validation_set(X_train, preds_val_t, save = True):
 	# Ploting our predicted masks
 	ix = random.randint(602, 668)
 	plt.figure(figsize=(20,20))
@@ -70,4 +73,25 @@ def random_prediction_plots_on_validation_set():
 	ix = ix - 603
 	imshow(np.squeeze(preds_val_t[ix] > 0.5))
 	plt.title("Predictions")
-	plt.show()
+	if save:
+		plt.savefig('rnd-validationset-prediction-set.png')
+	else:
+		plt.show()
+
+
+def random_prediction_plots_on_test_set(X_test, preds_test, save = True):
+	# Ploting our predicted masks
+	ix = random.randint(0, 50)
+	plt.figure(figsize=(20,20))
+	# Our original training image
+	plt.subplot(131)
+	imshow(X_test[ix])
+	plt.title("TEst")
+
+	plt.subplot(133)
+	imshow(np.squeeze(preds_test[ix] > 0.5))
+	plt.title("Predictions")
+	if save:
+		plt.savefig('rnd-prediction-test-set.png')
+	else:
+		plt.show()
