@@ -68,7 +68,7 @@ Requires Training sets & test sets are expected to be in the below format.
 Input struct on single train and test set: 
 ![alt text][unet3]
 
-[unet3]: https://github.com/iamlmn/train-unet/blob/master/assets/input-struct.png "Input Struct"
+[unet3]: https://github.com/iamlmn/train-unet/blob/master/assets/input_struct.png "Input Struct"
 
 ***
 
