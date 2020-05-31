@@ -38,13 +38,13 @@ U-NET archtiectURE:
 
 [unet1]: https://github.com/iamlmn/train-unet/blob/master/assets/Unet.png "Unet Arch"
 
-U-NET design: 
+U-NET Structure: 
 ![alt text][unet2]
 
 [unet2]: https://github.com/iamlmn/train-unet/blob/master/assets/unet-design.png "Unet Design"
 
 
-## Intersectionn over union(IoU) metrics
+## Intersection over union(IoU) metrics
 IoU is basically a measure of overlap.
 
 IoU = ^Size_of_union/_Size of Intersection
