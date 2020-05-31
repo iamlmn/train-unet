@@ -1,6 +1,6 @@
 # Train Unet
 
-Aim is to create a low-code easy to use python library for training CNN models using Unet architecture and custom metrics like IoU (Intersection over Union) at ease for semantic segmentation of medical images.
+Aim is to create a low-code easy to use python library for training CNN models using Unet architecture with custom metrics like IoU (Intersection over Union) at ease for semantic segmentation of medical images/scans.
 
 ## Appliccations in Medical Imaging
 - Many medical applications necessitates finding and accurately labeling things found in medical scans.
@@ -44,11 +44,10 @@ U-NET design:
 [unet2]: https://github.com/iamlmn/train-unet/blob/master/assets/unet-design.png "Unet Design"
 
 
-## Intersectionn over union metrics
+## Intersectionn over union(IoU) metrics
 IoU is basically a measure of overlap.
 
-Iou = Size_of_union / Size of Intersection
-
+IoU = ^Size_of_union /_ Size of Intersection
  - Typically IoU over 0.5 is acceptable.
  - higher the IoU better the prediction.
 
@@ -78,12 +77,15 @@ Input struct on single train and test set:
 
 ##### use it from Python:
 ```python
+# Configure training target images
 IMG_WIDTH = 128
 IMG_HEIGHT = 128
 IMG_CHANNELS = 3
 TRAIN_PATH = '../data/U_NET/train/'
 TEST_PATH = '../data/U_NET/validation/'
 MODEL_OUTPUT_PATH = 'py_model.h5'
+
+# Training and prediction
 from train_unet import TrainUnet
 unet_test = TrainUnet(TRAIN_PATH, TEST_PATH, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, MODEL_OUTPUT_PATH) # Create Unet object
 X_train, Y_train = unet_test.resize_training_sets(combine_masks = True) # prep training data
