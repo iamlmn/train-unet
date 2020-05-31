@@ -47,7 +47,7 @@ U-NET design:
 ## Intersectionn over union(IoU) metrics
 IoU is basically a measure of overlap.
 
-IoU = ^Size_of_union /_ Size of Intersection
+IoU = ^Size_of_union/_Size of Intersection
  - Typically IoU over 0.5 is acceptable.
  - higher the IoU better the prediction.
 
