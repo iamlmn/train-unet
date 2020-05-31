@@ -1,6 +1,6 @@
 # Train Unet
 
-Aim is to create a low-code easy to use python library for training CNN models using Unet architecture with custom metrics like IoU (Intersection over Union) at ease for semantic segmentation of medical images/scans.
+Aim is to create a low-code easy to use python library for training CNN models using Unet architecture with custom metrics like IoU (Intersection over Union) for semantic segmentation of medical images/scans.
 
 ## Appliccations in Medical Imaging
 - Many medical applications necessitates finding and accurately labeling things found in medical scans.
@@ -62,9 +62,8 @@ cd train-unet
 pip install -r requirements.txt
 python3 train_unet/main.py
 ```
-Can be used like a package like below as well
 
-Requires Training sets & test sets are expected to be in the below format.
+Training sets & test sets (.png) are expected to be in the below folder format.
 
 Input struct on single train and test set: 
 ![alt text][unet3]
