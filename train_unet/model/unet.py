@@ -1,16 +1,27 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-class Unet(self):
-    def __init__(self):
-        pass
+from keras.models import Model, load_model
+from keras.layers import Input
+from keras.layers.core import Dropout, Lambda
+from keras.layers.convolutional import Conv2D, Conv2DTranspose
+from keras.layers.pooling import MaxPooling2D
+from keras.layers.merge import concatenate
+from keras.callbacks import EarlyStopping, ModelCheckpoint
+from keras import backend as K
+
+class Unet:
+    def __init__(self, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS):
+        self.IMG_HEIGHT = IMG_HEIGHT
+        self.IMG_WIDTH =  IMG_WIDTH
+        self.IMG_CHANNELS = IMG_CHANNELS
 
     def model(self):
         # Build U-Net model
         # Note we make our layers varaibles so that we can concatenate or stack
         # This is required so that we can re-create our U-Net Model
 
-        inputs = Input((IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS))
+        inputs = Input((self.IMG_HEIGHT, self.IMG_WIDTH, self.IMG_CHANNELS))
         s = Lambda(lambda x: x / 255) (inputs)
 
         c1 = Conv2D(16, (3, 3), activation='elu', kernel_initializer='he_normal', padding='same') (s)
@@ -63,6 +74,8 @@ class Unet(self):
 
         # Note our output is effectively a mask of 128 x 128 
         outputs = Conv2D(1, (1, 1), activation='sigmoid') (c9)
+
+        return inputs,outputs
 
 def compile_model():
     model = Model(inputs=[inputs], outputs=[outputs])

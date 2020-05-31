@@ -1,8 +1,13 @@
 
-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+from itertools import chain
+from skimage.io import imread, imshow, imread_collection, concatenate_images
 
 # Illustrate the train images and masks
-def train_illustrate():
+def train_illustrate(X_train, Y_train, save = True):
 	plt.figure(figsize=(20,16))
 	x, y = 12,4
 	for i in range(y):  
@@ -18,8 +23,11 @@ def train_illustrate():
 	        plt.imshow(np.squeeze(Y_train[pos]))
 	        plt.title('Mask #{}'.format(pos))
 	        plt.axis('off')
-	# TODO NEED TO C		ONVERT TO FIGURE SAVE
-	plt.show()
+	# TODO NEED TO CONVERT TO FIGURE SAVE
+	if save:
+		plt.savefig('trains.png')
+	else:
+		plt.show()
 
 
 def random_prediction_plots_on_training_set():
@@ -47,7 +55,7 @@ def random_prediction_plots_on_training_set():
 	# TODO NNEED TO SAVE INSTEAD OF SHOW
 
 
-def random_prediiction_plots_on_validation_set():
+def random_prediction_plots_on_validation_set():
 	# Ploting our predicted masks
 	ix = random.randint(602, 668)
 	plt.figure(figsize=(20,20))
