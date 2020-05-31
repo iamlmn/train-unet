@@ -59,7 +59,8 @@ IoU = ^Size_of_union/_Size of Intersection
 ```
 git clone https://github.com/iamlmn/train-unet.git
 cd train-unet
-python3 main.py
+pip install -r requirements.txt
+python3 train_unet/main.py
 ```
 Can be used like a package like below as well
 
