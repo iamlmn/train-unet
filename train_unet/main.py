@@ -43,8 +43,8 @@ mem = Memory(cachedir)
 IMG_WIDTH = 128
 IMG_HEIGHT = 128
 IMG_CHANNELS = 3
-TRAIN_PATH = '../assets/U_NET/train/'
-TEST_PATH = '../assets/U_NET/validation/'
+TRAIN_PATH = '../data/U_NET/train/'
+TEST_PATH = '../data/U_NET/validation/'
 MODEL_OUTPUT_PATH = 'py_model.h5'
 warnings.filterwarnings('ignore', category=UserWarning, module='skimage')
 warnings.filterwarnings('ignore')

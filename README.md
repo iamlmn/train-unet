@@ -81,8 +81,8 @@ Input struct on single train and test set:
 IMG_WIDTH = 128
 IMG_HEIGHT = 128
 IMG_CHANNELS = 3
-TRAIN_PATH = '../assets/U_NET/train/'
-TEST_PATH = '../assets/U_NET/validation/'
+TRAIN_PATH = '../data/U_NET/train/'
+TEST_PATH = '../data/U_NET/validation/'
 MODEL_OUTPUT_PATH = 'py_model.h5'
 from train_unet import TrainUnet
 unet_test = TrainUnet(TRAIN_PATH, TEST_PATH, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, MODEL_OUTPUT_PATH) # Create Unet object
