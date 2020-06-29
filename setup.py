@@ -23,5 +23,5 @@ setup(
     author_email="lakshminaarayananvs@rediffmail.com",
     packages=find_packages(),
     python_requires=">=3.6",
-    install_requires=["numpy","keras==2.2.4","tensorflow==1.13.1","scipy","pandas","skimage","docopt","tqdm"],
+    install_requires=["numpy","keras==2.2.4","tensorflow==1.15.2","scipy","pandas","skimage","docopt","tqdm"],
 )
