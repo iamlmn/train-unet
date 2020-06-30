@@ -2,7 +2,7 @@
 
 Aim is to create a low-code easy to use python library for training CNN models using Unet architecture with custom metrics like IoU (Intersection over Union) for semantic segmentation of medical images/scans.
 
-## Appliccations in Medical Imaging
+## Applications in Medical Imaging
 - Many medical applications necessitates finding and accurately labeling things found in medical scans.
 - This is often done using advanced software to assist medical technicians and doctos. However, this task still requires human intervention and such as, can be tedious,slow, expensive and prone to human error.
 - There's huge initiative for use Computer Vision and Deep Learning to automate many of these tasks. 
@@ -55,12 +55,26 @@ IoU = ^Size_of_union/_Size of Intersection
 
 ## Installation and Usage
 
-
+## Get the required packages
 ```
 git clone https://github.com/iamlmn/train-unet.git
 cd train-unet
 pip install -r requirements.txt
-python3 train_unet/main.py
+```
+or get the dependencies installed
+```
+pandas
+keras==2.2.4
+tensorflow==1.13.1
+numpy
+spicy
+scikit-image
+tqdm
+docopt
+```
+### Install train_unet using pip
+```
+pip install train-unet
 ```
 
 Training sets & test sets (.png) are expected to be in the below folder format.
@@ -78,6 +92,8 @@ Input struct on single train and test set:
 ##### use it from Python:
 ```python
 # Configure training target images
+from train_unet import TrainUnet
+# set image/mask sizes
 IMG_WIDTH = 128
 IMG_HEIGHT = 128
 IMG_CHANNELS = 3
@@ -86,16 +102,14 @@ TEST_PATH = '../data/U_NET/validation/'
 MODEL_OUTPUT_PATH = 'py_model.h5'
 
 # Training and prediction
-from train_unet import TrainUnet
 unet_test = TrainUnet(TRAIN_PATH, TEST_PATH, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, MODEL_OUTPUT_PATH) # Create Unet object
 X_train, Y_train = unet_test.resize_training_sets(combine_masks = True) # prep training data
 X_test = unet_test.resize_target_sets() # prep Target sets
-unet_test.train_illustrate() # illustrate every 10th training and masked images
+unet_test.train_illustrate() # exports every 10th training and masked images - illustrates
 model_path = unet_test.train_model() # Traing
 preds_train, preds_val, preds_test = unet_test.load_and_predict() # predict
 unet_test.plot_random_comparisons(preds_train_t, preds_val_t, preds_test, _save = True) # comparison plots on random images
-ix = 25 # temp
-unet_test.classification_report(ix)
+unet_test.classification_report(ix=25)
 
 ```
 
@@ -103,8 +117,9 @@ unet_test.classification_report(ix)
 
 TODOs and completed work : 
 - [x] Base module class
-- [ ] Generalization
-- [ ] Brainstorm ideas
+- [x] Pypi setup
+- [ ] deploying to AWS as a Lambda service
+- [ ] Ideate Model parameeter modification
 - [ ] 3d Segmentations?
 - [ ] Unit tests
 

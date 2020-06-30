@@ -1,4 +1,4 @@
-from metrics import iou_metric
+from .metrics import iou_metric
 import numpy as np
 
 class ClassificationReport:
