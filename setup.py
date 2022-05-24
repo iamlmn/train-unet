@@ -31,5 +31,5 @@ setup(
     ],
     packages=['train_unet', 'train_unet.model', 'train_unet.predict'],
     python_requires=">=3.6",
-    install_requires=["numpy","keras==2.2.4","tensorflow==1.13.1","scipy","pandas","scikit-image","docopt","tqdm"],
+    install_requires=["numpy","keras==2.2.4","tensorflow==2.6.4","scipy","pandas","scikit-image","docopt","tqdm"],
 )
